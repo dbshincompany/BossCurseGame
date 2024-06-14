@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy2d7etgs2bie"]
+
+[ext_resource type="Script" path="res://Boss/Boss.gd" id="1_eu5b7"]
+[ext_resource type="Texture2D" uid="uid://blx43g0pjjeuh" path="res://Sprites/Boss/Boss.png" id="2_yk6o7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4uegh"]
+radius = 88.0
+height = 278.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lvnx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yk6o7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Boss" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_eu5b7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.207843, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("CapsuleShape2D_4uegh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8.5, -7)
+sprite_frames = SubResource("SpriteFrames_0lvnx")

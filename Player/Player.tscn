@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dle7om5nqtdud"]
+
+[ext_resource type="Texture2D" uid="uid://uf5grlevmec1" path="res://Sprites/Player/guy.png" id="1_6cont"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_782k4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgb7l"]
+height = 36.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srnil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6cont")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(5, 5)
+script = ExtResource("1_782k4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("CapsuleShape2D_hgb7l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(2.08165e-12, 2.08165e-12)
+sprite_frames = SubResource("SpriteFrames_srnil")
+animation = &"Idle"
+
+[node name="CurseMeter" type="ColorRect" parent="."]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -10.0
+offset_top = -20.0
+offset_right = -8.0
+offset_bottom = -18.0
+grow_horizontal = 2
+pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
+color = Color(0.0784314, 0.603922, 0.0901961, 1)
