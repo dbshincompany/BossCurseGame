@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 600.0
+const SPEED = 0
 const DISTANCE = 500
 
 var playerPositionX = 0
