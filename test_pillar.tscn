@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxu5hmx3qspmx"]
+
+[ext_resource type="Texture2D" uid="uid://bos3e6mccr8xo" path="res://Sprites/TestCube.png" id="1_lo7l7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_876cf"]
+size = Vector2(48, 48)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4much"]
+polygon = PackedVector2Array(-8, -8, -8, 40, 40, 40, 40, -8)
+
+[node name="Test Pillar" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(16, 16)
+scale = Vector2(3, 3)
+texture = ExtResource("1_lo7l7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_876cf")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_4much")

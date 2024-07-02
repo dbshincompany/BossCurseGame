@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dle7om5nqtdud"]
+[gd_scene load_steps=6 format=3 uid="uid://dle7om5nqtdud"]
 
 [ext_resource type="Texture2D" uid="uid://uf5grlevmec1" path="res://Sprites/Player/guy.png" id="1_6cont"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_782k4"]
+[ext_resource type="Texture2D" uid="uid://cln8r1lqia3uv" path="res://Sprites/new_gradient_texture_2d.tres" id="3_cdyxl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgb7l"]
 height = 36.0
@@ -33,6 +34,7 @@ sprite_frames = SubResource("SpriteFrames_srnil")
 animation = &"Idle"
 
 [node name="CurseMeter" type="ColorRect" parent="."]
+light_mask = 2
 z_index = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -44,3 +46,11 @@ offset_bottom = -18.0
 grow_horizontal = 2
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
 color = Color(0.0784314, 0.603922, 0.0901961, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.466829, 0.466829)
+shadow_enabled = true
+texture = ExtResource("3_cdyxl")
+texture_scale = 3.0
