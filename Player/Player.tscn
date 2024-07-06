@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_782k4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgb7l"]
-height = 36.0
+radius = 7.6
+height = 29.2857
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_srnil"]
 animations = [{
@@ -23,12 +24,13 @@ scale = Vector2(5, 5)
 script = ExtResource("1_782k4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.08165e-12, 2.08165e-12)
+position = Vector2(-4.1633e-13, 6.4)
+scale = Vector2(1, 0.56)
 shape = SubResource("CapsuleShape2D_hgb7l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(2.08165e-12, 2.08165e-12)
+position = Vector2(-0.2, -1.8)
 sprite_frames = SubResource("SpriteFrames_srnil")
 animation = &"Idle"
 

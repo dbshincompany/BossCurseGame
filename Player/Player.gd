@@ -6,9 +6,9 @@ var curse = 0
 func _physics_process(delta):
 	var directionX = Input.get_axis("ui_left", "ui_right")
 	var directionY = Input.get_axis("ui_up", "ui_down")
-	velocity.x += directionX * delta * speed
-	velocity.y += directionY * delta * speed
-
+	velocity.x = directionX * speed
+	velocity.y = directionY * speed
+	
 	move_and_slide()
 	
 	get_node("CurseMeter").scale.x = curse
