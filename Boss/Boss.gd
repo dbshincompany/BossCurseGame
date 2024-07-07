@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 600.0
+@export var SPEED = 600.0
 const DISTANCE = 500
 
 var playerPositionX = 0
@@ -9,13 +9,15 @@ var playerPositionY = 0
 
 func _physics_process(delta):
 	if(position.x > playerPositionX):
-		position.x -= SPEED * delta
+		velocity.x = Vector2.LEFT.x * SPEED
 	else:
-		position.x += SPEED * delta
+		velocity.x = Vector2.RIGHT.x * SPEED
 	if(position.y > playerPositionY):
-		position.y -= SPEED * delta
+		velocity.y = Vector2.UP.y * SPEED
 	else:
-		position.y += SPEED * delta
+		velocity.y = Vector2.DOWN.y * SPEED
+		
+	move_and_slide()
 func getPlayerPosition(posX, posY):
 	playerPositionX = posX
 	playerPositionY = posY

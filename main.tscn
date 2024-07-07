@@ -3,13 +3,52 @@
 [ext_resource type="Script" path="res://main.gd" id="1_ofc6v"]
 
 [node name="Main" type="Node2D"]
+position = Vector2(-362, -493)
 script = ExtResource("1_ofc6v")
 
-[node name="Play" type="Button" parent="."]
-offset_left = 1142.0
-offset_top = 673.0
-offset_right = 1781.0
-offset_bottom = 964.0
-text = "Play"
+[node name="Host" type="Button" parent="."]
+offset_left = 419.0
+offset_top = 690.0
+offset_right = 1058.0
+offset_bottom = 981.0
+scale = Vector2(0.5, 0.5)
+text = "Host
+"
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[node name="Join" type="Button" parent="."]
+offset_left = 764.0
+offset_top = 688.0
+offset_right = 1403.0
+offset_bottom = 979.0
+scale = Vector2(0.5, 0.5)
+text = "Join"
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="."]
+offset_left = 1104.0
+offset_top = 689.0
+offset_right = 1743.0
+offset_bottom = 980.0
+scale = Vector2(0.5, 0.5)
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 753.0
+offset_top = 894.0
+offset_right = 1325.0
+offset_bottom = 942.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 593.0
+offset_top = 879.0
+offset_right = 640.0
+offset_bottom = 902.0
+scale = Vector2(3, 3)
+text = "NAME"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Host" to="." method="_on_host_button_down"]
+[connection signal="button_down" from="Join" to="." method="_on_join_button_down"]
+[connection signal="button_down" from="Play" to="." method="_on_play_button_down"]

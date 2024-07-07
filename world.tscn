@@ -1,23 +1,66 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcpwben0gxy5b"]
+[gd_scene load_steps=9 format=3 uid="uid://bcpwben0gxy5b"]
 
 [ext_resource type="PackedScene" uid="uid://dle7om5nqtdud" path="res://Player/Player.tscn" id="1_owp0l"]
 [ext_resource type="Script" path="res://world.gd" id="1_xg8km"]
+[ext_resource type="Texture2D" uid="uid://terwfm0kwox5" path="res://Sprites/icon.svg" id="3_g4i52"]
 [ext_resource type="PackedScene" uid="uid://dy2d7etgs2bie" path="res://Boss/boss.tscn" id="3_hdno3"]
+[ext_resource type="Texture2D" uid="uid://bos3e6mccr8xo" path="res://Sprites/TestCube.png" id="4_6yvnn"]
+[ext_resource type="PackedScene" uid="uid://bxu5hmx3qspmx" path="res://test_pillar.tscn" id="5_sxywo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x47ep"]
-size = Vector2(1040, 205)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_45dud"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bh2jf"]
+light_mode = 2
 
 [node name="World" type="Node2D"]
+material = SubResource("CanvasItemMaterial_45dud")
 script = ExtResource("1_xg8km")
+PlayerScene = ExtResource("1_owp0l")
 
-[node name="Player" parent="." instance=ExtResource("1_owp0l")]
-position = Vector2(1776, 832)
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.133333, 0.133333, 0.133333, 1)
+material = SubResource("CanvasItemMaterial_bh2jf")
+position = Vector2(1585, 1040)
+scale = Vector2(1084.73, 912.281)
+texture = ExtResource("4_6yvnn")
 
 [node name="Boss" parent="." instance=ExtResource("3_hdno3")]
+use_parent_material = true
 position = Vector2(681, 827)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Test Pillar" parent="." instance=ExtResource("5_sxywo")]
+use_parent_material = true
+position = Vector2(2160, 931)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1818, 499)
-shape = SubResource("RectangleShape2D_x47ep")
+[node name="Test Pillar2" parent="." instance=ExtResource("5_sxywo")]
+use_parent_material = true
+position = Vector2(2182, 545)
+
+[node name="Test Pillar3" parent="." instance=ExtResource("5_sxywo")]
+use_parent_material = true
+position = Vector2(1373, 1163)
+
+[node name="Test Pillar4" parent="." instance=ExtResource("5_sxywo")]
+use_parent_material = true
+position = Vector2(760, 255)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(2834.73, 1377.95)
+scale = Vector2(4.51981, 4.32728)
+texture = ExtResource("3_g4i52")
+
+[node name="SpawnLocation" type="Node" parent="."]
+
+[node name="0" type="Node2D" parent="SpawnLocation" groups=["PlayerSpawnPoint"]]
+position = Vector2(246, 269)
+
+[node name="1" type="Node2D" parent="SpawnLocation" groups=["PlayerSpawnPoint"]]
+position = Vector2(670, 280)
+
+[node name="2" type="Node2D" parent="SpawnLocation" groups=["PlayerSpawnPoint"]]
+position = Vector2(481, 460)
+
+[node name="3" type="Node2D" parent="SpawnLocation" groups=["PlayerSpawnPoint"]]
+position = Vector2(478, 102)
