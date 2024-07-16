@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy2d7etgs2bie"]
+[gd_scene load_steps=6 format=3 uid="uid://dy2d7etgs2bie"]
 
 [ext_resource type="Script" path="res://Boss/Boss.gd" id="1_eu5b7"]
 [ext_resource type="Texture2D" uid="uid://blx43g0pjjeuh" path="res://Sprites/Boss/Boss.png" id="2_yk6o7"]
@@ -17,6 +17,11 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_rcdnh"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="Boss" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -45,3 +50,9 @@ shape = SubResource("CapsuleShape2D_4uegh")
 use_parent_material = true
 position = Vector2(8.5, -7)
 sprite_frames = SubResource("SpriteFrames_0lvnx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_rcdnh")

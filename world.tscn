@@ -17,6 +17,7 @@ light_mode = 2
 material = SubResource("CanvasItemMaterial_45dud")
 script = ExtResource("1_xg8km")
 PlayerScene = ExtResource("1_owp0l")
+BossScene = ExtResource("3_hdno3")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.133333, 0.133333, 0.133333, 1)
@@ -24,10 +25,6 @@ material = SubResource("CanvasItemMaterial_bh2jf")
 position = Vector2(1585, 1040)
 scale = Vector2(1084.73, 912.281)
 texture = ExtResource("4_6yvnn")
-
-[node name="Boss" parent="." instance=ExtResource("3_hdno3")]
-use_parent_material = true
-position = Vector2(681, 827)
 
 [node name="Test Pillar" parent="." instance=ExtResource("5_sxywo")]
 use_parent_material = true

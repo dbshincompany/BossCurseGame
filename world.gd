@@ -1,12 +1,19 @@
 extends Node2D
 
 @export var PlayerScene : PackedScene
+@export var BossScene : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var index = 0
+	var BossCreated = false
 	for i in GameManager.Players:
-		var currentPlayer = PlayerScene.instantiate()
+		var currentPlayer
+		if !BossCreated:
+			currentPlayer = BossScene.instantiate()
+			BossCreated = true
+		else:
+			currentPlayer = PlayerScene.instantiate()
 		currentPlayer.name = str(GameManager.Players[i].id)
 		add_child(currentPlayer)
 		for spawn in get_tree().get_nodes_in_group("PlayerSpawnPoint"):
